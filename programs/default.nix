@@ -1,0 +1,6 @@
+[
+  ./alacritty
+  ./git
+  ./gnupg
+  ./zsh
+]
