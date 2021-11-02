@@ -8,6 +8,7 @@ let
     };
     init.defaultBranch = "main";
     pull.rebase = true;
+    signing.signByDefault = true;
     commit.gpgsign = true;
   };
 in {
