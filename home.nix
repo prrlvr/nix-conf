@@ -33,6 +33,9 @@
     pavucontrol
     slack
 
+    man-pages
+    man-db
+
     # Dev tools
     docker
     docker-compose
@@ -41,6 +44,8 @@
     python3
     tig
     valgrind
+    gcc
+    gcc.man
 
     # DoomEmacs dependencies
     nixfmt
@@ -54,7 +59,10 @@
     nix-zsh-completions
   ];
 
+
   # imports =  (./programs);
-  imports = ( import ./programs );
+  imports = [
+    ./programs
+  ];
 
 }

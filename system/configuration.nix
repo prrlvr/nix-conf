@@ -39,6 +39,8 @@
       preLVM = true;
     };
   };
+  
+  boot.initrd.kernelModules = [ "hid_generic" ];
 
   boot.kernelParams = [ "processor.max_cstate=4" "amd_iomu=soft" "idle=nowait" "mem_sleep_default=sleep" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -80,21 +82,24 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.prrlvr = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "networkmanager"];
+    extraGroups = [ "wheel" "docker" "networkmanager" "video" ];
     shell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    i3
+    docker
     emacs
     firefox
     git
+    i3
     vim
     wget
     zsh
   ];
+  programs.light.enable = true;
+  virtualisation.docker.enable = true;
 
   # TODO: move to user config file
   fonts.fonts = with pkgs; [

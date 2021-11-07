@@ -1,6 +1,9 @@
-[
-  ./alacritty
-  ./git
-  ./gnupg
-  ./zsh
-]
+{ ... }:
+{
+  imports = [
+    ./alacritty.nix
+    ./git.nix
+    ./gnupg.nix
+    ./zsh.nix
+  ];
+}
